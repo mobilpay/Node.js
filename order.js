@@ -6,7 +6,7 @@ module.exports={
 };
 
 const crypto=require('crypto');
-var serviceManager = require( '@ntp.js/app' ).serviceManager;
+
 const rc4 = require( './encrypt.js' );
 const fs = require( 'fs' );
 const privateKey = fs.readFileSync( privateKeyPath ).toString();
@@ -28,10 +28,10 @@ function getPayment( orderId, amount, currency ) {
                 timestamp: date.getTime(),
                 type: 'card'
             },
-            signature: serviceManager.config.payment.signature,
+            signature: '<your_netopia_seller_account_signature>',
             url: {
-                return: serviceManager.config.payment.returnUrl,
-                confirm: serviceManager.config.payment.confirmUrl
+                return: '<your_return_URL>',
+                confirm: '<your_confirm_URL>'
             },
             invoice: {
                 $: {
