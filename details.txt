@@ -1,5 +1,0 @@
-trebuie sa se instaleze doua module externe
-npm install --save arc4
-npm install --save xml2js
-
-- foloseste si promise - bluebird, dar se poate reface sa mearga si fara
