@@ -7,6 +7,8 @@ module.exports = {
 
 const rc4 = require('./encrypt.js');
 const fs = require('fs');
+const dotenv = require("dotenv");
+dotenv.config();
 
 const privateKey = fs.readFileSync( privateKeyPath ).toString();
 const publicKey = fs.readFileSync( publicKeypath ).toString();
