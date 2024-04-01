@@ -63,10 +63,11 @@ const getPayment = (orderId, amount, currency) => {
             mobile_phone: 'mobilePhone'
           }
         }
-      }
+      },
+      ipn_cipher: 'aes-256-cbc',
     }
   }
-  return { data, algorithm: 'AES-256-CBC' };
+  return { data, algorithm: 'aes-256-cbc' };
 }
 
 function getRequest(orderId) {
@@ -78,7 +79,7 @@ function getRequest(orderId) {
 
 function decodeResponse(data) {
   return new Promise(function (resolve, reject) {
-    parser.parseString(rc4.decrypt(privateKey, data.iv, data.env_key, data.data), function (err, result) {
+    parser.parseString(rc4.decrypt(privateKey, data.iv, data.env_key, data.data, data.cipher), function (err, result) {
       if (err) {
         reject(err);
       }
